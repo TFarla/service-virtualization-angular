@@ -31,7 +31,7 @@ info: [https:4546 proxy] ::ffff:127.0.0.1:34894 => GET /posts/1
 ```
 Angular sends the HTTP _Get /posts/1_ via a webpack proxy towards Mountebank. Mountebank is configured to proxy traffic towards https://jsonplaceholder.typicode.com/ and store the response in a cache. Mountebank will serve the response from cache on future requests.
 
-![service virtualization in action](https://user-images.githubusercontent.com/4613944/42948013-e3b62778-8b6e-11e8-803e-0cb62890e18d.png)
+![service virtualization in action](https://user-images.githubusercontent.com/4613944/42948129-29c29c1a-8b6f-11e8-8b87-9530895b53a8.png)
 
 # unit tests
 Service virtualization is a pain to set up in unit test because there are no build in utilities for Angular to wait on network latency. Angular does provide utilities to mock/stub services that use rxjs (the HttpClientModule for example) which is a lot easier to use.
