@@ -33,6 +33,26 @@ Angular sends the HTTP _Get /posts/1_ via a webpack proxy towards Mountebank. Mo
 
 ![service virtualization in action](https://user-images.githubusercontent.com/4613944/42948129-29c29c1a-8b6f-11e8-8b87-9530895b53a8.png)
 
+# during development
+Service virtualization can aid development and also creates the stub files to use in tests.
+To proxy requests towards mountebank from the webpack development server the `src/proxy.conf.json` file has been created and the following configuration has been added to the `angular.json` file:
+
+```json
+{
+  "proxyConfig": "src/proxy.conf.json"
+}
+```
+
 # unit tests
 Service virtualization is a pain to set up in unit test because there are no build in utilities for Angular to wait on network latency. Angular does provide utilities to mock/stub services that use rxjs (the HttpClientModule for example) which is a lot easier to use.
 
+# end to end tests
+Service virtualization is more suited for end to end testing. Unfortunately there is no way to  easily use the same `src/proxy.conf.json` configuration as we use for development. To allow the same proxy behaviour we have added the following configuration to the `src/karma.conf.js`:
+
+```javascript
+proxyValidateSSL: false,
+proxies: {
+      '/posts': 'https://localhost:4546/posts'
+  }
+});
+```
