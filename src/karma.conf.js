@@ -26,6 +26,10 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false
+    singleRun: false,
+    proxyValidateSSL: false,
+    proxies: {
+      '/posts': 'https://localhost:4546/posts'
+    }
   });
 };

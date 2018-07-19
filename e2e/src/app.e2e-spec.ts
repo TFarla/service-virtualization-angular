@@ -11,4 +11,10 @@ describe('workspace-project App', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
+
+  it('should display title of the post when button is clicked', () => {
+    page.navigateTo();
+    page.clickButton();
+    expect(page.getPostTitle()).toEqual('sunt aut facere repellat provident occaecati excepturi optio reprehenderit');
+  });
 });
