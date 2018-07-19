@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "mb": "mb --configfile src/mb.json --nologfile"
+    "mb": "mb --configfile src/mb.json --nologfile",
+    "mb-save": "mb save --savefile src/mb.json"
   },
   "private": true,
   "dependencies": {
