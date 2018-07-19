@@ -1,0 +1,6 @@
+{
+  "/posts": {
+    "target": "https://localhost:4546",
+    "secure": false
+  }
+}
